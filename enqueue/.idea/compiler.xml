@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="atcs-web-project" />
         <module name="enque" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="atcs-web-project" target="1.5" />
       <module name="enque" target="1.8" />
     </bytecodeTargetLevel>
   </component>

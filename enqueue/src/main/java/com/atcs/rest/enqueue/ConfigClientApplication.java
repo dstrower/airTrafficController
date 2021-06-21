@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 
 @SpringBootApplication
@@ -32,6 +33,13 @@ public class ConfigClientApplication {
         @RequestMapping("/message")
         String getMessage() {
             return this.message;
+        }
+
+        @RequestMapping(method = RequestMethod.GET,
+        value = "/planeQueue",
+                produces = MediaType.APPLICATION_JSON_VALUE)
+        List<Plane> getPlaneList() {
+            return queingManager.getPlaneList();
         }
 
         @RequestMapping(method = RequestMethod.POST,
