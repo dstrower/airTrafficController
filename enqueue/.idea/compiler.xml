@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="atcs-web-project" target="1.5" />
+      <module name="atcs-web-project" target="7" />
       <module name="enque" target="1.8" />
     </bytecodeTargetLevel>
   </component>

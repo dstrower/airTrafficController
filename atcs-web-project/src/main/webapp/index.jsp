@@ -22,6 +22,24 @@
            </tr>
             <jsp:getProperty name = "queue" property = "queue" />
          </table>
-      </center>
+         </center>
+         <h2> Add to Queue </h2>
+              <form action = "main.jsp" method = "POST" >
+              <table>
+                 <tr><td>Plane Id </td>
+                 <td><input type = "text" name = "id"></td>
+                 </tr>
+                  <tr>
+                    <td>Type </td>
+                    <td><input type = "text" name = "type" /> </td>
+                  </tr>
+                  <tr>
+                    <td>Size </td>
+                    <td><input type = "text" name = "size" /> </td>
+                  </tr>
+              </table>
+               <input type = "submit" value = "Submit" />
+               </form>
+
    </body>
 </html>
