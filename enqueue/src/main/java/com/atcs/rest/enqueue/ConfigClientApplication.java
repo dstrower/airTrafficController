@@ -30,6 +30,9 @@ public class ConfigClientApplication {
         @Value("${message:Hello default}")
         private String message;
 
+        @Value("${connection.url}")
+        private String connection;
+
         @RequestMapping("/message")
         String getMessage() {
             return this.message;
@@ -39,15 +42,11 @@ public class ConfigClientApplication {
         value = "/planeQueue",
                 produces = MediaType.APPLICATION_JSON_VALUE)
         List<Plane> getPlaneList() {
+            System.out.println("Connection = "+ connection);
             return queingManager.getPlaneList();
         }
 
-        @RequestMapping(method = RequestMethod.POST,
-                value = "/register",
-                produces = MediaType.APPLICATION_JSON_VALUE)
-        public String register(@RequestBody User user) {
-            return "OK";
-        }
+
 
         @RequestMapping(method = RequestMethod.POST,
                 value = "/addToQueue",

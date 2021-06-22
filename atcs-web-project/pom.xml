@@ -14,6 +14,23 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.7</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.9.8</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.5</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
   <build>
     <finalName>atcs-web-project</finalName>

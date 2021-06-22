@@ -1,5 +1,6 @@
 package com.atcs.impl;
 
+import com.atcs.data.DataDelegate;
 import com.atcs.objects.Plane;
 import com.atcs.objects.Status;
 
@@ -8,13 +9,15 @@ import java.util.List;
 
 public class QueingManager {
 
+    DataDelegate dataDelegate = new DataDelegate();
+
     List<Plane> planeList = new ArrayList<>();
 
     public Status addPlaneToQueue(Plane plane) {
         Status status = validatePlane(plane);
         if(!status.isError()) {
             System.out.println("Adding to the queue.");
-            planeList.add(plane);
+            status = dataDelegate.addPlaneToQueue(plane);
         }
         return status;
     }
@@ -64,7 +67,11 @@ public class QueingManager {
         return false;
     }
 
+    /**
+     * This calls the delegate to get the plane queue
+     * @return List of Plane objects.
+     */
     public List<Plane> getPlaneList() {
-        return planeList;
+        return dataDelegate.getPlaneList();
     }
 }
