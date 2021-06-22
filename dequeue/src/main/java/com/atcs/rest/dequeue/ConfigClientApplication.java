@@ -1,6 +1,7 @@
-package com.atcs.rest.enqueue;
+package com.atcs.rest.dequeue;
 
-import com.atcs.impl.QueingManager;
+import com.atcs.impl.QueueingManager;
+import com.atcs.objects.DequeueResult;
 import com.atcs.objects.Plane;
 import com.atcs.objects.Status;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 
 @SpringBootApplication
@@ -22,13 +22,11 @@ public class ConfigClientApplication {
         SpringApplication.run(ConfigClientApplication.class, args);
     }
 
-    QueingManager queingManager = new QueingManager();
+    QueueingManager queingManager = new QueueingManager();
 
     @RestController
     class MessageRestController {
 
-        @Value("${message:Hello default}")
-        private String message;
 
         @Value("${connection.url}")
         private String connection;
@@ -36,26 +34,16 @@ public class ConfigClientApplication {
 
 
         @RequestMapping(method = RequestMethod.GET,
-        value = "/planeQueue",
+        value = "/deplaneQueue",
                 produces = MediaType.APPLICATION_JSON_VALUE)
-        List<Plane> getPlaneList() {
+        Plane dequeuePlane() {
             System.out.println("Connection = "+ connection);
-            return queingManager.getPlaneList(connection);
-        }
-
-
-
-        @RequestMapping(method = RequestMethod.POST,
-                value = "/addToQueue",
-                produces = MediaType.APPLICATION_JSON_VALUE)
-        public String addToQueue(@RequestBody Plane plane) {
-            Status status = queingManager.addPlaneToQueue(plane,connection);
-            if(status.isError()) {
-                throw new IllegalArgumentException(status.getErrorMessage());
+            DequeueResult dequeueResult = queingManager.dequeuePlane(connection);
+            if(dequeueResult.getStatus().isError()) {
+                throw new IllegalArgumentException(dequeueResult.getStatus().getErrorMessage());
             }
-            return "OK";
+            return dequeueResult.getPlane();
         }
-
 
         @ExceptionHandler
         void handleIllegalArgumentException(

@@ -8,15 +8,18 @@
         <outputRelativeToContentRoot value="true" />
         <module name="enque" />
         <module name="atcs-web-project" />
+        <module name="dequeue" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="atcs-web-project" target="7" />
+      <module name="dequeue" target="1.8" />
       <module name="enque" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="dequeue" options="-parameters" />
       <module name="enque" options="-parameters" />
     </option>
   </component>

@@ -4,6 +4,7 @@ import com.atcs.data.DataDelegate;
 import com.atcs.objects.Plane;
 import com.atcs.objects.Status;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +14,17 @@ public class QueingManager {
 
     List<Plane> planeList = new ArrayList<>();
 
-    public Status addPlaneToQueue(Plane plane) {
+    public Status addPlaneToQueue(Plane plane,String connection) {
         Status status = validatePlane(plane);
         if(!status.isError()) {
             System.out.println("Adding to the queue.");
-            status = dataDelegate.addPlaneToQueue(plane);
+            try {
+                status = dataDelegate.addPlaneToQueue(plane,connection);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+                status.setError(true);
+                status.setErrorMessage(throwables.getMessage());
+            }
         }
         return status;
     }
@@ -71,7 +78,8 @@ public class QueingManager {
      * This calls the delegate to get the plane queue
      * @return List of Plane objects.
      */
-    public List<Plane> getPlaneList() {
-        return dataDelegate.getPlaneList();
+    public List<Plane> getPlaneList(String connection)
+    {
+        return dataDelegate.getPlaneList(connection);
     }
 }

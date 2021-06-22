@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../atcs-web-project/atcs-web-project.iml" filepath="$PROJECT_DIR$/../atcs-web-project/atcs-web-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dequeue/dequeue.iml" filepath="$PROJECT_DIR$/../dequeue/dequeue.iml" />
       <module fileurl="file://$PROJECT_DIR$/enque.iml" filepath="$PROJECT_DIR$/enque.iml" />
     </modules>
   </component>

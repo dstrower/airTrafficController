@@ -13,15 +13,18 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 
+public class RemovePlaneFromQueue {
 
-public class ReadPlaneQueue {
-    Gson gson = new Gson();
 
-    public String readPlaneQueue() throws IOException {
+
+
+    Plane plane = new Plane();
+
+    public String getPlane()  {
         URL url = null;
-        String html = null;
+
         try {
-            url = new URL("http://localhost:10000/enqueue/planeQueue");
+            url = new URL("http://localhost:10000/dequeue/deplaneQueue");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestProperty("Content-Type", "application/json");
             con.setRequestMethod("GET");
@@ -36,42 +39,27 @@ public class ReadPlaneQueue {
                 }
                 in.close();
                 String json = content.toString();
-                ObjectMapper mapper = new ObjectMapper();
-                Plane[] planes = mapper.readValue(json, Plane[].class);
-                List<Plane> planeList = Arrays.asList(planes);
-                html = toHtml(planeList);
+                System.out.println("json = " + json);
+                Gson gson = new Gson();
+                plane = gson.fromJson(json,Plane.class);
                 con.disconnect();
             }
 
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        return html;
-    }
-
-    private String toHtml(List<Plane> planeList) {
-        String html = null;
-        for(Plane plane: planeList) {
-            String row = "<tr><td>";
-            row = row + plane.getId() + "</td>";
-            row = row + "<td>" + plane.getType() + "</td>";
-            row = row + "<td>" + plane.getSize() + "</td>";
-            row = row + "</tr>";
-            if(html == null) {
-                html = row;
-            } else {
-                html = html + row;
-            }
-        }
-        return html;
-    }
-
-    public String getQueue() {
-        try {
-            return readPlaneQueue();
         } catch (IOException e) {
             e.printStackTrace();
-            return "error";
         }
+        return " ";
+    }
+
+    public int getId() {
+        return plane.getId();
+    }
+
+    public String getType() {
+        return plane.getType();
+    }
+
+    public String getSize() {
+        return plane.getSize();
     }
 }

@@ -2,34 +2,19 @@ package com.atcs.data;
 
 import com.atcs.objects.Plane;
 import com.atcs.objects.Status;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
 public class DataDelegate {
-
-    private Connection connect = null;
-
-
-    public DataDelegate() {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            connect = DriverManager
-                    .getConnection("jdbc:mysql://airtrafficcontrol.cpm6gbpcuwyo.us-east-1.rds.amazonaws.com:3306/airTrafficDB?user=masterUserName&password=masterAtcs!");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     /**
      * This method inserts the plane into the queue.
      * @param plane - The object to insert
      * @return status - This indicates if the insertion was successful.
      */
-    public Status addPlaneToQueue(Plane plane) {
+    public Status addPlaneToQueue(Plane plane,String connection) throws SQLException {
+        Connection connect =  DriverManager.getConnection(connection);
         Status status = new Status();
-        if(isAlreadyInQueue(plane.getId())) {
+        if(isAlreadyInQueue(plane.getId(),connection)) {
             status.setError(true);
             status.setErrorMessage("Id '" + plane.getId() + "' is already in the queue.");
         } else {
@@ -54,8 +39,8 @@ public class DataDelegate {
      * @param id
      * @return true or false
      */
-    private boolean isAlreadyInQueue(int id) {
-        List<Plane> planeList = getPlaneList();
+    private boolean isAlreadyInQueue(int id,String connection) {
+        List<Plane> planeList = getPlaneList(connection);
         if(planeList != null) {
             for(Plane plane: planeList) {
                 if(id == plane.getId()) {
@@ -67,9 +52,10 @@ public class DataDelegate {
     }
 
 
-    public List<Plane> getPlaneList() {
+    public List<Plane> getPlaneList(String connection) {
         List<Plane> planeList = new ArrayList<>();
         try {
+            Connection connect =  DriverManager.getConnection(connection);
             Statement statement = connect.createStatement();
             String sql = "select queue_id,plane_id,type,size, ";
             sql = sql + "case ";

@@ -23,7 +23,7 @@
             <jsp:getProperty name = "queue" property = "queue" />
          </table>
          </center>
-         <h2> Add to Queue </h2>
+         <h2> Add Plane to Queue </h2>
               <form action = "main.jsp" method = "POST" >
               <table>
                  <tr><td>Plane Id </td>
@@ -40,6 +40,10 @@
               </table>
                <input type = "submit" value = "Submit" />
                </form>
+       <h2> Remove Plane From Queue </h2>
+       <form action = "remove.jsp" method = "POST" >
+       <input type = "submit" value = "RemovePlane" />
+       </form>
 
    </body>
 </html>
