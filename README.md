@@ -42,7 +42,8 @@
     1. Start the euruka_server
         1. ./startEureka.sh
         1. Verify that it is running by going to [Eureka](http://localhost:8761/)
-        1. You should see the Eureka page running on port 8761
+        1. You should see the Eureka page running on port 8761 <br>
+           ![Eureka](https://github.com/dstrower/airTrafficController/blob/master/images/EurekaStart.png)
     1. Start cloudConfig
         1. ./startCloudConfig.sh
     1. Start the zuul-proxy
