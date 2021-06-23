@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69525202-b8ed-4a6e-8fbd-9ad14c6d8280" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../atcs-web-project/src/main/java/com/atcs/action/RemovePlaneFromQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../atcs-web-project/src/main/webapp/remove.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dequeue/src/main/java/com/atcs/objects/DequeueResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../enqueue/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../atcs-web-project/src/main/java/com/atcs/action/ReadPlaneQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/../atcs-web-project/src/main/java/com/atcs/action/ReadPlaneQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../atcs-web-project/src/main/java/com/atcs/objects/PlaneList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../atcs-web-project/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../atcs-web-project/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../enqueue/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../enqueue/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../enqueue/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../enqueue/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../enqueue/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../enqueue/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../enqueue/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../enqueue/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../enqueue/src/main/java/com/atcs/data/DataDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/../enqueue/src/main/java/com/atcs/data/DataDelegate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../enqueue/src/main/java/com/atcs/data/JavaMysqlSelectExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../enqueue/src/main/java/com/atcs/impl/QueingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../enqueue/src/main/java/com/atcs/impl/QueingManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../enqueue/src/main/java/com/atcs/rest/enqueue/ConfigClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../enqueue/src/main/java/com/atcs/rest/enqueue/ConfigClientApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
