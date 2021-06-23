@@ -52,12 +52,16 @@
         1. ./startEnqueue.sh
     1. Start the dequeue microservice.
         1. ./startDequeue.sh
-    1. Verify that 3 microservices are running by doing a refresh of Eureka [Eureka](http://localhost:8761/)
+    1. Verify that 3 microservices are running by doing a refresh of Eureka [Eureka](http://localhost:8761/) <br>
+       ![Eureka](https://github.com/dstrower/airTrafficController/blob/master/images/Eureka3.png)
 1. Now start the webserver
     1. ./startWebServer.sh
     
 ## Running the Program
 
-Point your browser to [Main Page](http://localhost:8080/)
+Point your browser to [Main Page](http://localhost:8080/) <br>
+![Eureka](https://github.com/dstrower/airTrafficController/blob/master/images/mainWebpage.png)
+
+
 
 
