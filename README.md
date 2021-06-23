@@ -1,5 +1,13 @@
 # airTrafficController
 
+## Basic Design
+This application uses two microservices to service 3 REST calls <br>
+to allow the user to view, add to and remove from the airplane queue. <br>
+The data is stored in an AWS mysql database. <br>
+The following picture shows the architecture. <br>
+![High Level Design](https://github.com/dstrower/airTrafficController/blob/master/images/microservice.jpg)
+
+
 ## Requirements to Run Program
 
 1. Must have java
