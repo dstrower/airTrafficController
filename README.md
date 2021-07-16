@@ -1,5 +1,63 @@
 # airTrafficController
 
+##Requirements
+Objective: Using a language of your choice, develop an Air Traffic Control system (ATCS) that meets the requirements listed below. <br>
+The ATCS will allow the queuing and dequeuing of aircraft (AC). <br>
+
+**Layers** <br>
+The ATCS should have the following layers:
+1. REST layer <br>
+a. This layer provides access to the ATCS. <br>
+b. It should provide endpoints for all of the ATC methods. <br>
+c. Appropriate error messages should be displayed / returned. <br>
+Ex: A method was called before the system has booted. <br>
+c. It must be a REST interface. <br>
+Hint: Follow traditional REST best practices
+1. Logic layer <br>
+a. This layer provides the logical operations of the ATCS. <br>
+b. The it should provide the following functions <br>
+Boot – start the system <br>
+Enqueue – Add an AC to the queue <br>
+Dequeue- Remove an AC from the queue based on priority <br>
+List – Provide the current order of the AC in the queue <br>
+It should access the queue through the data layer. <br>
+1. Data layer
+a. This layer holds the data structure for the queue. <br>
+b. The queue must be accessed through this layer, not directly. <br>
+
+**Objects** <br>
+The ATCS should have the following objects with the listed properties, <br>
+
+Aircraft (AC) <br>
+ID <br>
+This field will store the AC id <br>
+Type <br>
+Emergency, VIP, Passenger, or Cargo <br>
+Size <br>
+Small or Large <br>
+
+**Dequeue Logic**
+The ATCS should dequeue planes with the following logic <br>
+VIP are more important than other types, except Emergency. <br>
+Emergency AC always have the highest priority. <br>
+Passenger ACs have a higher priority than Cargo ACs. <br>
+Large ACs of a given type have priority over Small ACs of the same type. <br>
+Earlier enqueued ACs of a given type and size have precedence over later enqueued ACs of the same type and size. <br>
+
+**Requirements**
+Implement the ATCS with the requirements specified above. <br>
+1. Assume multiple users will concurrently access they system. Multiple air traffic controllers will ask for the next plane to be dequeued. <br>
+1. To the greatest extent possible, show all of your code.  Feel free to use standard libraries provided by your chosen implementation language. <br>
+1. Please send your complete project including artifacts.  If the project is built in Java, please use Maven, Gradle or Ivy/ANT for the build.  <br>
+1. Please include a README me file with instructions on how to run the project locally.  <br>
+**Optional Bonuses:** <br>
+1. Use a non in-memory/persistent datastore in the data layer. <br>
+1. Implement a UI to show the queue and add/remove ACs. <br>
+
+
+
+
+
 ## Basic Design
 This application uses two microservices to service 3 REST calls <br>
 to allow the user to view, add to and remove from the airplane queue. <br>
